@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ScriptMusicFunction",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ScriptMusicFunction",
+  "parent":{
+    "name":"Musics",
+    "path":"folders/Sounds-Sfx/Musics.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
