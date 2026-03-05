@@ -1,5 +1,5 @@
 
-if room == Room1 {
+if room == RoomInit {
 
 	//set_song_ingame(JDSherbert___Minigame_Music_Pack___Beach_Vibes,120,120);
 	

@@ -72,11 +72,11 @@ pauseKeyPressed = InputPressed(INPUT_VERB.PAUSE);
 		
 	
 //aceppt
-	rollKeyPressed = InputPressed(INPUT_VERB.ACCEPT);
+	acceptKeyPressed = InputPressed(INPUT_VERB.ACCEPT);
 		//rollKeyPressed = clamp(rollKeyPressed,0,1);	
 		
 //action 
-	interactKeyPressed = InputPressed(INPUT_VERB.ACTION);
+	actionKeyPressed = InputPressed(INPUT_VERB.ACTION);
 		//interactKeyPressed = clamp(interactKeyPressed,0,1);	
 	
 	

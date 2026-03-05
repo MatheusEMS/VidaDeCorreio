@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ResetarUpgrades",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ResetarUpgrades",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
