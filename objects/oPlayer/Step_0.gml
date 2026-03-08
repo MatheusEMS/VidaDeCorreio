@@ -10,7 +10,8 @@ switch(state)
 	break;
 	
 	case STATE_MODE.GAMEPLAY:
-		
+		//tirar invencibilidade
+		invincibleTime = false;
 		
 		//mover a nave
 		if rightKey
@@ -44,20 +45,16 @@ switch(state)
 			imgIndex = 0;
 		}
 		
-		//colisions
-		if place_meeting(x + spdX, y, oWall)
-		{
-			spdX = 0;
-		}
-		if place_meeting(x, y + spdY, oWall)
-		{
-			spdY = 0;
-		}
+		PlayerColision();
 		
 		
 		x += spdX;
 		y += spdY;
 		direction = rot;
+		
+		//resetar bonk vars
+		timerBonk = 1;
+		speedBonk = 1.5;
 	break;
 	
 	case STATE_MODE.PEDAGIO:
@@ -66,5 +63,33 @@ switch(state)
 	
 	case STATE_MODE.EXPLODIU:
 	
+	break;
+	
+	case STATE_MODE.BONK:
+		//Movement
+		spdX = lengthdir_x(speedBonk,direction-180);
+		spdY = lengthdir_y(speedBonk,direction-180);
+	
+	
+		//collision
+		PlayerColision();
+		
+		//Update Sprite
+		
+		//sprite_index = sPlayerBonk;
+		//image_index = CARDINAL_DIR - 2;
+	
+		//Change State
+		if timerBonk <= 0
+		{
+			state = STATE_MODE.GAMEPLAY;	
+		}
+		
+		speedBonk -= 0.01;
+		
+		timerBonk -= delta_time/1000000;
+		
+		x += spdX;
+		y += spdY;
 	break;
 }
