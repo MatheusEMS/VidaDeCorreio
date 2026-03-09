@@ -13,6 +13,16 @@ enum STATE_MODE
 
 state = STATE_MODE.GAMEPLAY;
 
+//sprite
+spr = sPlayer;
+
+
+//UPGRADES
+
+if global.upgrades[0] == true
+{
+	spr = sPlayerPainted;
+}
 
 if global.upgrades[4] == true
 {
@@ -22,8 +32,7 @@ if global.upgrades[4] == true
 	hp = 1;	
 }
 
-//sprite
-spr = sPlayer;
+
 
 //movimento com momentum
 spdX = 0;
@@ -40,5 +49,8 @@ invincibleTime = false;
 spd = 3;
 rot = direction;
 moveRot = 2.5;
+
+//pedagio
+timerPedagio = 10;
 
 imgIndex = 0;

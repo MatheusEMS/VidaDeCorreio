@@ -23,6 +23,7 @@ switch(state)
 			rot += moveRot;
 		}
 		
+		//acelerar
 		if upKey
 		{
 			imgIndex = 1;
@@ -45,6 +46,18 @@ switch(state)
 			imgIndex = 0;
 		}
 		
+		//Boost
+		
+		/*
+		//Trail effect
+		with (instance_create_depth(x,y,depth+1,oTrail))
+		{
+			sprite_index = other.sprite_index;
+			image_blend = c_fuchsia;
+			image_alpha = 0.7;
+		}*/
+		
+		
 		PlayerColision();
 		
 		
@@ -58,7 +71,13 @@ switch(state)
 	break;
 	
 	case STATE_MODE.PEDAGIO:
-	
+		//pagando pedagio 
+		timerPedagio -= delta_time/1000000;
+		
+		if timerPedagio <= 0
+		{
+			state = STATE_MODE.GAMEPLAY;	
+		}
 	break;
 	
 	case STATE_MODE.EXPLODIU:
