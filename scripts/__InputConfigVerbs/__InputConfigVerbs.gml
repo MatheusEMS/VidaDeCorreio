@@ -11,6 +11,7 @@ function __InputConfigVerbs()
         CANCEL,
         ACTION,
         SPECIAL,
+		ENCOLHER,
         PAUSE,
     }
     
@@ -30,7 +31,8 @@ function __InputConfigVerbs()
         InputDefineVerb(INPUT_VERB.ACCEPT,  "accept",      vk_space,            gp_face1);
         InputDefineVerb(INPUT_VERB.CANCEL,  "cancel",      vk_backspace,        gp_face2);
         InputDefineVerb(INPUT_VERB.ACTION,  "action",      vk_enter,            gp_face3);
-        InputDefineVerb(INPUT_VERB.SPECIAL, "special",     vk_shift,            gp_face4);
+        InputDefineVerb(INPUT_VERB.SPECIAL, "special",     ord("Z"),            gp_face4);
+		InputDefineVerb(INPUT_VERB.ENCOLHER, "encolher",     ord("X"),            gp_face4);
         InputDefineVerb(INPUT_VERB.PAUSE,   "pause",       vk_escape,           gp_start);
     }
     else //Flip A/B over on Switch
@@ -42,7 +44,8 @@ function __InputConfigVerbs()
         InputDefineVerb(INPUT_VERB.ACCEPT,  "accept",  undefined,   gp_face2); // !!
         InputDefineVerb(INPUT_VERB.CANCEL,  "cancel",  undefined,   gp_face1); // !!
         InputDefineVerb(INPUT_VERB.ACTION,  "action",  undefined,   gp_face3);
-        InputDefineVerb(INPUT_VERB.SPECIAL, "special", undefined,   gp_face4);
+        InputDefineVerb(INPUT_VERB.SPECIAL, "special", undefined,   gp_paddlel);
+		InputDefineVerb(INPUT_VERB.ENCOLHER, "encolher",     ord("X"),  gp_face4);
         InputDefineVerb(INPUT_VERB.PAUSE,   "pause",   undefined,   gp_start);
     }
     

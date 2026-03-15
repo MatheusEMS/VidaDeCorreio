@@ -9,6 +9,6 @@ if instance_exists(oGameManager) && oGameManager.state == GAME_STATES.GAMEPLAY
 		instance_destroy(other);
 	}else
 	{
-		
+		//colocar alguma coisa
 	}
 }

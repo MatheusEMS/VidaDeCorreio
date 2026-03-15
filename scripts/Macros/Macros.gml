@@ -3,7 +3,7 @@ function Macros(){
 	#macro FRAME_RATE 60
 	
 	//#macro CARDINAL_DIR round(direction/90)
-	#macro ROOM_START RoomTitle
+	#macro ROOM_START RoomLevel
 
 	#macro RES_W 960
 	#macro RES_H 540

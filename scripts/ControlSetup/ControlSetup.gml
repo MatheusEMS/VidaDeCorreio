@@ -81,12 +81,15 @@ pauseKeyPressed = InputPressed(INPUT_VERB.PAUSE);
 	
 	
 //cancel
-	attackKeyPressed = InputPressed(INPUT_VERB.CANCEL);
+	CancelKeyPressed = InputPressed(INPUT_VERB.CANCEL);
 		//attackKeyPressed = clamp(attackKeyPressed,0,1);
 		
 //special 
-	itemKeyPressed = InputPressed(INPUT_VERB.SPECIAL);//trocar
+	ShootKeyPressed = InputPressed(INPUT_VERB.SPECIAL);//trocar
 		//itemKeyPressed = clamp(itemKeyPressed,0,1);
+		
+//encolher
+	EncolherKeyPressed = InputPressed(INPUT_VERB.ENCOLHER);
 		
 //equipament cycling
 	//itemSelectUpPressed = InputPressed(INPUT_VERB.EQUIP1);

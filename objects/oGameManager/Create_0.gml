@@ -13,7 +13,7 @@ timer = global.Tempo;
 global.upgrades = [
 false, //cor nave 0
 false,	//passe pedagio 1
-false,	//laser 2
+true,	//laser 2
 false,	//boost 3 
 false,	//armor 4
 false,  //encolher 5

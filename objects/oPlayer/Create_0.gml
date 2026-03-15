@@ -15,16 +15,23 @@ state = STATE_MODE.GAMEPLAY;
 
 //sprite
 spr = sPlayer;
+mask_index = sPlayer;
 
 
 //UPGRADES
 
-if global.upgrades[0] == true
+if global.upgrades[0] == true // cor da nave
 {
 	spr = sPlayerPainted;
 }
 
-if global.upgrades[4] == true
+//Atirar laser
+if global.upgrades[2] == true
+{
+	//trocar sprite para um com armas
+}
+
+if global.upgrades[4] == true //armadura
 {
 	hp = 2
 }else
@@ -49,6 +56,15 @@ invincibleTime = false;
 spd = 3;
 rot = direction;
 moveRot = 2.5;
+
+//Laser
+firingDelay = 0;
+recoil = 0;
+
+//Encolher
+encolhido = false;
+EncolherTime = 3;
+timerEncolher = EncolherTime;
 
 //pedagio
 timerPedagio = 10;

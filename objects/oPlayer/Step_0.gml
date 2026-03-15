@@ -58,12 +58,80 @@ switch(state)
 		}*/
 		
 		
+		//Collision
 		PlayerColision();
 		
 		
-		x += spdX;
-		y += spdY;
+		x += spdX - lengthdir_x(recoil,image_angle);
+		y += spdY - lengthdir_y(recoil,image_angle);
 		direction = rot;
+		
+		//Atirar laser
+		if global.upgrades[2] == true
+		{
+			firingDelay--;
+			recoil = max(0,recoil - 1);
+			
+			if ShootKeyPressed && firingDelay < 0 
+			{
+	
+				recoil = 1;
+				firingDelay = 5;
+				ScreenShake(2,10);
+				
+				//play a sound effect
+				//oSFX.shootSnd = true;
+				
+				with(instance_create_layer(x,y,"Bullet",oBullet))
+				{
+					spd = 25;
+					direction = other.rot + random_range(-3,3);
+					image_angle = direction;
+				}
+
+			}
+
+		}
+		
+		//Encolher Nave
+		if global.upgrades[5] == true   
+		{
+			if EncolherKeyPressed && encolhido == false
+			{
+				encolhido = true
+				mask_index = sPlayerMini;
+				
+				if global.upgrades[0] == true // colocar o mini rosa
+				{
+					spr = sPlayerMini;
+				}else
+				{
+					spr = sPlayerMini;
+				}
+			}
+			
+			if encolhido
+			{
+				timerEncolher -= delta_time/1000000;
+				
+				if timerEncolher <= 0
+				{
+					encolhido = false
+					mask_index = sPlayer;
+				
+					if global.upgrades[0] == true // colocar o mini rosa
+					{
+						spr = sPlayerPainted;
+					}else
+					{
+						spr = sPlayer;
+					}
+					
+					//resetar timer
+					timerEncolher = EncolherTime;
+				}
+			}
+		}
 		
 		//resetar bonk vars
 		timerBonk = 1;
