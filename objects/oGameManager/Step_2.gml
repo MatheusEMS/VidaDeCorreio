@@ -11,12 +11,11 @@ switch(state)
 	case GAME_STATES.MENU:
 		ResetarUpgrades();
 	
-		if actionKeyPressed 
+		if ShootKeyPressed 
 		{
-			Transition(TRANS_MODE.GOTO,RoomTutorial);
-			
+			IrStateTransition(RoomTutorial);
 			//MUDA ESTADO DO JOGO
-			state = GAME_STATES.TUTORIAL;
+			//state = GAME_STATES.TUTORIAL;
 		}
 	break;
 	
@@ -46,7 +45,7 @@ switch(state)
 		
 		if timerUi <= 0
 		{
-			//aleatorizar os upgrades
+			//vars temporariarias
 			var _i = 0;
 			var _qt = 3
 			
@@ -114,6 +113,14 @@ switch(state)
 		}
 		
 		
+	break;
+	
+	case GAME_STATES.TRANSITION:
+		if (!checkTransition)
+		{
+			checkTransition = true;
+			Transition(TRANS_MODE.GOTO,roomDestino);
+		}
 	break;
 }
 

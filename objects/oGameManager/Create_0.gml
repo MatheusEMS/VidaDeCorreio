@@ -11,12 +11,12 @@ timer = global.Tempo;
 //Upgrades
 //guardar o que foi e não foi escolhido
 global.upgrades = [
-false, //cor nave 0
+true, //cor nave 0
 false,	//passe pedagio 1
 true,	//laser 2
-false,	//boost 3 
-false,	//armor 4
-false,  //encolher 5
+true,	//boost 3 
+true,	//armor 4
+true,  //encolher 5
 false,	//invisivel 6
 false,	//controles invertidos 7
 ]
@@ -35,6 +35,10 @@ yScaleUi = 1;
 qtUpgrades = 0;
 slotSelect = 1;
 
+//transition
+roomDestino = noone;
+checkTransition = false;
+
 //mouse
 window_set_cursor(cr_none);
 
@@ -48,7 +52,8 @@ enum GAME_STATES
 	GAMEPLAY,
 	CONCLUIDO,
 	ACABOUTEMPO,
-	UPGRADE
+	UPGRADE,
+	TRANSITION
 }
 
 state = GAME_STATES.GAMEPLAY;

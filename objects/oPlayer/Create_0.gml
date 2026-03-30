@@ -31,12 +31,24 @@ if global.upgrades[2] == true
 	//trocar sprite para um com armas
 }
 
+//Boost
+if global.upgrades[3] == true
+{
+	//trocar sprite para um com propulsor
+}
+
 if global.upgrades[4] == true //armadura
 {
 	hp = 2
 }else
 {
 	hp = 1;	
+}
+
+//Invisivel
+if global.upgrades[6] == true
+{
+	image_alpha = 0;
 }
 
 
@@ -46,7 +58,10 @@ spdX = 0;
 spdY = 0;
 MAXspdX = 3;
 MAXspdY = 3;
+MAXspdXTurbo = 5;
+MAXspdYTurbo = 5;
 acel = .1;
+acelTurbo = .1;
 
 //bonk
 timerBonk = 1;

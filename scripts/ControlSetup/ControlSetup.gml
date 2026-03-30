@@ -74,22 +74,20 @@ pauseKeyPressed = InputPressed(INPUT_VERB.PAUSE);
 //aceppt
 	acceptKeyPressed = InputPressed(INPUT_VERB.ACCEPT);
 		//rollKeyPressed = clamp(rollKeyPressed,0,1);	
-		
-//action 
-	actionKeyPressed = InputPressed(INPUT_VERB.ACTION);
-		//interactKeyPressed = clamp(interactKeyPressed,0,1);	
-	
 	
 //cancel
 	CancelKeyPressed = InputPressed(INPUT_VERB.CANCEL);
 		//attackKeyPressed = clamp(attackKeyPressed,0,1);
 		
-//special 
-	ShootKeyPressed = InputPressed(INPUT_VERB.SPECIAL);//trocar
+//shoot 
+	ShootKeyPressed = InputPressed(INPUT_VERB.ACTION);//trocar
 		//itemKeyPressed = clamp(itemKeyPressed,0,1);
 		
 //encolher
 	EncolherKeyPressed = InputPressed(INPUT_VERB.ENCOLHER);
+	
+//turbo
+	TurboKey = InputCheck(INPUT_VERB.TURBO);
 		
 //equipament cycling
 	//itemSelectUpPressed = InputPressed(INPUT_VERB.EQUIP1);

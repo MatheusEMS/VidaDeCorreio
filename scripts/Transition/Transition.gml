@@ -11,3 +11,12 @@ function Transition()
 		}
 	}
 }
+
+//so rodar no game manager
+function IrStateTransition(_room)
+{
+	checkTransition = false;
+	roomDestino = _room;
+	state = GAME_STATES.TRANSITION;
+	
+}

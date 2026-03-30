@@ -14,28 +14,89 @@ switch(state)
 		invincibleTime = false;
 		
 		//mover a nave
-		if rightKey
+		if global.upgrades[7] == false
 		{
-			rot -= moveRot;
+			if rightKey
+			{
+				rot -= moveRot;
+			}
+			if leftKey
+			{
+				rot += moveRot;
+			}
+		}else//controles invertidos
+		{
+			if leftKey
+			{
+				rot -= moveRot;
+			}
+			if rightKey
+			{
+				rot += moveRot;
+			}
 		}
-		if leftKey
+		
+		//Boost
+		if global.upgrades[3] == true
 		{
-			rot += moveRot;
+			
 		}
 		
 		//acelerar
-		if upKey
+		if (upKey && global.upgrades[7] == false) || (TurboKey && global.upgrades[3] == true)
+		|| (downKey && global.upgrades[7] == true)
 		{
 			imgIndex = 1;
 			
-			//limitando a spd
-			spdX = clamp(spdX,-MAXspdX,MAXspdX);
-			spdY = clamp(spdY,-MAXspdY,MAXspdY);
+			//Esta usando Turbo
+			if (TurboKey && global.upgrades[3] == true)
+			{
+				
+				//criando trail
+				with (instance_create_depth(x,y,depth+1,oTrail))
+				{
+					//especifico para esse tiro
+					//image_speed = 0; //nesse caso tem que parar a speed
+					//image_index = 1; //nesse caso tem que passar o index
+					//direction = other.direction;
+					//image_angle = direction;
+	
+					//Padrao
+					sprite_index = other.spr; //passo a sprite
+					image_alpha = 0.7; // passo o alpha
+	
+					//Opcoes de timer
+					travarScale0 = true; ///trava as scale no min 0, sem valor negativo
+					spdDiminui = 0.04; //timer de vida
+					spdDiminuiScale = 0; //timer das scales
+					cor = c_red;  //passo a cor
+				}
+
+				
+				//limitando a spd
+				spdX = clamp(spdX,-MAXspdXTurbo,MAXspdXTurbo);
+				spdY = clamp(spdY,-MAXspdYTurbo,MAXspdYTurbo);
 			
-			spdX += lengthdir_x(acel,rot);
-			spdY += lengthdir_y(acel,rot);
+				spdX += lengthdir_x(acelTurbo,rot);
+				spdY += lengthdir_y(acelTurbo,rot);
+				
+			}else
+			{
+				//limitando a spd
+				if abs(spdX) <= 3 && abs(spdY) <= 3 //se saiu do turbo não dar clamp na hora
+				{
+					spdX = clamp(spdX,-MAXspdX,MAXspdX);
+					spdY = clamp(spdY,-MAXspdY,MAXspdY);
+				}else
+				{
+					//fazer a spd se aproximar de 0
+					spdX = lerp(spdX,0,0.05);
+					spdY = lerp(spdY,0,0.05);
+				}
 			
-			
+				spdX += lengthdir_x(acel,rot);
+				spdY += lengthdir_y(acel,rot);
+			}
 			
 		}else
 		{
@@ -124,6 +185,7 @@ switch(state)
 						spr = sPlayerPainted;
 					}else
 					{
+						//está ficando preso na parede
 						spr = sPlayer;
 					}
 					
@@ -140,6 +202,9 @@ switch(state)
 	
 	case STATE_MODE.PEDAGIO:
 		//pagando pedagio 
+		
+		spdX = 0;
+		spdY = 0;
 		timerPedagio -= delta_time/1000000;
 		
 		if timerPedagio <= 0
