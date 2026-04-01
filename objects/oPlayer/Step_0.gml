@@ -177,6 +177,7 @@ switch(state)
 				
 				if timerEncolher <= 0
 				{
+					//desecolher
 					encolhido = false
 					mask_index = sPlayer;
 				
